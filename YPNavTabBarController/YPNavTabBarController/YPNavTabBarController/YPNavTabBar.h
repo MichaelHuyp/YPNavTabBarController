@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    /** 横线风格 */
+    YPNavTabBar_TypeLine,
+    /** 椭圆风格 */
+    YPNavTabBar_TypeEllipse,
+    /** 箭头风格 */
+    YPNavTabBar_TypeArrow
+} YPNavTabBar_Type;
+
+
 @class YPNavTabBar;
 
 @protocol YPNavTabBarDelegate <NSObject>
@@ -48,6 +58,9 @@
 
 /** 选项标题选中状态文字的颜色 */
 @property (nonatomic, strong) UIColor *navTabBar_selectedTitle_color;
+
+/** 选项风格 */
+@property (nonatomic, assign) YPNavTabBar_Type type;
 
 /**
  *  刷新数据

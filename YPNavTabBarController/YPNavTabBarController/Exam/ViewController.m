@@ -68,7 +68,7 @@
     // 设置未被选中时的标题字体颜色
 //    navTabBarController.navTabBar_normalTitle_color = [UIColor purpleColor];
     // 设置选中时的标题字体颜色
-//    navTabBarController.navTabBar_selectedTitle_color = [UIColor orangeColor];
+    navTabBarController.navTabBar_selectedTitle_color = [UIColor orangeColor];
     
     [navTabBarController addParentController:self];
     

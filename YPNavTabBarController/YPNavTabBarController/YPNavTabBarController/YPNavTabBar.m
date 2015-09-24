@@ -20,6 +20,9 @@
 /** 横条 */
 @property (nonatomic, weak) UIView *line;
 
+/** 椭圆条 */
+@property (nonatomic, weak) UIView *ellipse;
+
 
 @end
 
@@ -228,6 +231,24 @@
     
     for (UIButton *btn in self.items) {
         [btn setTitleColor:navTabBar_selectedTitle_color forState:UIControlStateSelected];
+    }
+}
+
+- (void)setType:(YPNavTabBar_Type)type
+{
+    _type = type;
+    
+    switch (type) {
+        case YPNavTabBar_TypeLine:
+            self.line.hidden = NO;
+            self.ellipse.hidden = YES;
+            break;
+        case YPNavTabBar_TypeEllipse:
+            self.line.hidden = YES;
+            self.ellipse.hidden = NO;
+            break;
+        default:
+            break;
     }
 }
 
