@@ -14,9 +14,6 @@
 /** 存储所有选项标题长度的数组 */
 @property (nonatomic, strong) NSArray *itemsWidth;
 
-/** 被按压的选项数组 */
-@property (nonatomic, strong) NSMutableArray *items;
-
 /** 所有的选项标题都在这个ScrollView上 */
 @property (nonatomic, weak) UIScrollView *navgationTabBar;
 
@@ -36,7 +33,7 @@
     if (_navgationTabBar == nil) {
         UIScrollView *scrollView = [[UIScrollView alloc] init];
         scrollView.showsHorizontalScrollIndicator = NO;
-        scrollView.backgroundColor = YPYellowColor;
+        scrollView.backgroundColor = YPClearColor;
         [self addSubview:scrollView];
         self.navgationTabBar = scrollView;
     }
@@ -47,7 +44,7 @@
 {
     if (_line == nil) {
         UIView *view = [[UIView alloc] init];
-        view.backgroundColor = YPBlueColor;
+        view.backgroundColor = YPColor_RGBA(20.0f, 80.0f, 200.0f, 0.7f);
         [self.navgationTabBar addSubview:view];
         self.line = view;
     }
@@ -104,6 +101,7 @@
         [widths addObject:width];
     }
     
+    
     return widths;
 }
 
@@ -116,6 +114,7 @@
         button.frame = CGRectMake(buttonX, 0, [widths[index] floatValue], YPNavigationBarH);
         [button setTitle:_itemTitles[index] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
         [button addTarget:self action:@selector(itemPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_navgationTabBar addSubview:button];
         
@@ -132,7 +131,7 @@
 - (void)itemPressed:(UIButton *)button
 {
     NSInteger index = [self.items indexOfObject:button];
-    [_delegate itemDidSelectedWithIndex:index];
+    [_delegate itemDidSelectedWithIndex:self index:index];
 }
 
 - (void)showLineWithButtonWidth:(CGFloat)width
@@ -185,6 +184,9 @@
         
         if ((_progress - (int)_progress) == 0) {
             lineX = button.frame.origin.x;
+            
+            // 回调代理方法
+            [self.delegate itemDidSelectedWithIndex:self index:_progress];
         }
         
         
@@ -196,6 +198,38 @@
     }];
 }
 
+- (void)setNavgationTabBar_color:(UIColor *)navgationTabBar_color
+{
+    _navgationTabBar_color = navgationTabBar_color;
+    
+    self.navgationTabBar.backgroundColor = navgationTabBar_color;
+}
+
+- (void)setNavgationTabBar_lineColor:(UIColor *)navgationTabBar_lineColor
+{
+    _navgationTabBar_lineColor = navgationTabBar_lineColor;
+    
+    self.line.backgroundColor = navgationTabBar_lineColor;
+}
+
+- (void)setNavTabBar_normalTitle_color:(UIColor *)navTabBar_normalTitle_color
+{
+    _navTabBar_normalTitle_color = navTabBar_normalTitle_color;
+    
+    
+    for (UIButton *btn in self.items) {
+        [btn setTitleColor:navTabBar_normalTitle_color forState:UIControlStateNormal];
+    }
+}
+
+- (void)setNavTabBar_selectedTitle_color:(UIColor *)navTabBar_selectedTitle_color
+{
+    _navTabBar_selectedTitle_color = navTabBar_selectedTitle_color;
+    
+    for (UIButton *btn in self.items) {
+        [btn setTitleColor:navTabBar_selectedTitle_color forState:UIControlStateSelected];
+    }
+}
 
 @end
 

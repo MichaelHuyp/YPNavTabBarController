@@ -20,10 +20,6 @@
 @property (nonatomic, weak) YPNavTabBar *navTabBar;
 /** 滚动主视图 */
 @property (nonatomic, weak) UIScrollView *mainView;
-/** 选项条颜色 */
-@property (nonatomic, strong) UIColor *navTabBarColor;
-/** 选项条横条的颜色 */
-@property (nonatomic, strong) UIColor *navTabBarLineColor;
 
 @end
 
@@ -51,9 +47,7 @@
     if (_navTabBar == nil) {
         YPNavTabBar *navTabBar = [[YPNavTabBar alloc] init];
         navTabBar.frame = CGRectMake(0, 0, YPScreenW, 44);
-        navTabBar.backgroundColor = _navTabBarColor;
         navTabBar.delegate = self;
-        navTabBar.lineColor = _navTabBarColor;
         navTabBar.itemTitles = _titles;
         // 更新选项条标题数据
         [navTabBar updateData];
@@ -67,11 +61,11 @@
 
 - (void)setup
 {
+    // 初始化风格
+    self.navTabBar_type = YPNavTabBarTypeLine;
+    
     // 初始化索引为1
     self.currentIndex = 1;
-    
-    // 初始化选项条颜色
-    self.navTabBarColor = YPColor_RGBA(240.0f, 230.0f, 230.0f, 1.0f);
     
     // 初始化选项卡标题数组
     self.titles = [[NSMutableArray alloc] initWithCapacity:self.subViewControllers.count];
@@ -115,17 +109,24 @@
 }
 
 
-#pragma mark - viewDidLoad -
+#pragma mark - viewDidLoad &dealloc -
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
+
+- (void)dealloc
+{
+    [self.mainView removeObserver:self forKeyPath:@"contentOffset"];
+}
+
+
 
 #pragma mark - KVO -
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     UIScrollView *scrollView = (UIScrollView *)object;
     
-    if ([keyPath isEqualToString:@"contentOffset"]) {
+    if ([keyPath isEqualToString:@"contentOffset"] && object == self.mainView) {
         
         _currentIndex = scrollView.contentOffset.x / YPScreenW;
         
@@ -141,9 +142,21 @@
 
 #pragma mark - YPNavTabBarDelegate -
 
-- (void)itemDidSelectedWithIndex:(NSInteger)index
+- (void)itemDidSelectedWithIndex:(YPNavTabBar *)navTabBar index:(NSInteger)index
 {
     [self.mainView setContentOffset:CGPointMake(index * YPScreenW, 0) animated:NO];
+    
+    
+    for (int i = 0; i < (int)navTabBar.items.count; i++) {
+        
+        UIButton *btn = navTabBar.items[i];
+        if (i == index) {
+            btn.selected = YES;
+        } else {
+            btn.selected = NO;
+        }
+    }
+    
 }
 
 
@@ -151,8 +164,6 @@
 
 - (void)setNavTabBar_Y:(CGFloat)navTabBar_Y
 {
-    if (!_navTabBar) return;
-    
     _navTabBar_Y = navTabBar_Y;
     
     self.navTabBar.yp_y = navTabBar_Y;
@@ -162,12 +173,25 @@
 
 - (void)setContentViewH:(CGFloat)contentViewH
 {
-    if (!_mainView) return;
-    
     _contentViewH = contentViewH;
     
     _mainView.yp_height = contentViewH;
 }
+
+- (void)setNavTabBar_color:(UIColor *)navTabBar_color
+{
+    navTabBar_color = navTabBar_color;
+    
+    self.navTabBar.navgationTabBar_color = navTabBar_color;
+}
+
+- (void)setNavTabBarLine_color:(UIColor *)navTabBarLine_color
+{
+    _navTabBarLine_color = navTabBarLine_color;
+    
+    self.navTabBar.navgationTabBar_lineColor = navTabBarLine_color;
+}
+
 
 - (void)addParentController:(UIViewController *)viewController
 {
@@ -175,6 +199,20 @@
     [viewController.view addSubview:self.view];
 }
 
+
+- (void)setNavTabBar_normalTitle_color:(UIColor *)navTabBar_normalTitle_color
+{
+    _navTabBar_normalTitle_color = navTabBar_normalTitle_color;
+    
+    self.navTabBar.navTabBar_normalTitle_color = navTabBar_normalTitle_color;
+}
+
+- (void)setNavTabBar_selectedTitle_color:(UIColor *)navTabBar_selectedTitle_color
+{
+    _navTabBar_selectedTitle_color = navTabBar_selectedTitle_color;
+    
+    self.navTabBar.navTabBar_selectedTitle_color = navTabBar_selectedTitle_color;
+}
 
 @end
 

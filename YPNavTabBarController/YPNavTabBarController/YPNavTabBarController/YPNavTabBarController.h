@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    /** 横线风格 */
+    YPNavTabBarTypeLine,
+    /** 椭圆风格 */
+    YPNavTabBarTypeEllipse,
+    /** 箭头风格 */
+    YPNavTabBarTypeArrow
+} YPNavTabBarType;
+
 @interface YPNavTabBarController : UIViewController
 
 @property (nonatomic, strong) NSArray *subViewControllers;
@@ -18,6 +27,40 @@
 /** 内容视图的高度 */
 @property (nonatomic, assign) CGFloat contentViewH;
 
+/** 设置风格 */
+@property (nonatomic, assign) YPNavTabBarType navTabBar_type;
+
+/** 设置选项卡的背景颜色 */
+@property (nonatomic, strong) UIColor *navTabBar_color;
+
+/** 选项条横条的颜色 */
+@property (nonatomic, strong) UIColor *navTabBarLine_color;
+
+/** 选项标题普通状态文字的颜色 */
+@property (nonatomic, strong) UIColor *navTabBar_normalTitle_color;
+
+/** 选项标题选中状态文字的颜色 */
+@property (nonatomic, strong) UIColor *navTabBar_selectedTitle_color;
+
 - (void)addParentController:(UIViewController *)viewController;
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
