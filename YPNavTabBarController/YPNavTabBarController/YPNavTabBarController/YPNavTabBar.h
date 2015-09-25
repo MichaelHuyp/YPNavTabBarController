@@ -10,12 +10,12 @@
 
 typedef enum {
     /** 横线风格 */
-    YPNavTabBar_TypeLine,
+    YPNavTabBarTypeLine = 0,
     /** 椭圆风格 */
-    YPNavTabBar_TypeEllipse,
+    YPNavTabBarTypeEllipse,
     /** 箭头风格 */
-    YPNavTabBar_TypeArrow
-} YPNavTabBar_Type;
+    YPNavTabBarTypeArrow
+} YPNavTabBarType;
 
 
 @class YPNavTabBar;
@@ -60,7 +60,7 @@ typedef enum {
 @property (nonatomic, strong) UIColor *navTabBar_selectedTitle_color;
 
 /** 选项风格 */
-@property (nonatomic, assign) YPNavTabBar_Type type;
+@property (nonatomic, assign) YPNavTabBarType type;
 
 /**
  *  刷新数据

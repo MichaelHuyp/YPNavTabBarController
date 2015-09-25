@@ -8,7 +8,6 @@
 
 #import "YPNavTabBarController.h"
 #import "YPNavTabBarControllerConst.h"
-#import "YPNavTabBar.h"
 
 @interface YPNavTabBarController () <YPNavTabBarDelegate>
 
@@ -61,9 +60,6 @@
 
 - (void)setup
 {
-    // 初始化风格
-    self.navTabBar_type = YPNavTabBarTypeLine;
-    
     // 初始化索引为1
     self.currentIndex = 1;
     
@@ -212,6 +208,13 @@
     _navTabBar_selectedTitle_color = navTabBar_selectedTitle_color;
     
     self.navTabBar.navTabBar_selectedTitle_color = navTabBar_selectedTitle_color;
+}
+
+- (void)setNavTabBar_type:(YPNavTabBarType)navTabBar_type
+{
+    _navTabBar_type = navTabBar_type;
+    
+    self.navTabBar.type = navTabBar_type;
 }
 
 @end

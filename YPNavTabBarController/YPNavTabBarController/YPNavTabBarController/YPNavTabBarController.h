@@ -7,15 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YPNavTabBar.h"
 
-typedef enum {
-    /** 横线风格 */
-    YPNavTabBarTypeLine,
-    /** 椭圆风格 */
-    YPNavTabBarTypeEllipse,
-    /** 箭头风格 */
-    YPNavTabBarTypeArrow
-} YPNavTabBarType;
 
 @interface YPNavTabBarController : UIViewController
 

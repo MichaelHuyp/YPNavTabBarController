@@ -43,6 +43,22 @@
     return _navgationTabBar;
 }
 
+- (UIView *)ellipse
+{
+    if (_ellipse == nil) {
+        UIView *view = [[UIView alloc] init];
+//        view.layer.borderWidth = 1;
+//        view.layer.borderColor = YPColor_RGBA(200, 0, 0, 0.5).CGColor;
+        view.layer.cornerRadius = 10;
+        view.backgroundColor = YPColor_RGBA(200, 200, 200, 0.3);
+        [self.navgationTabBar addSubview:view];
+        self.ellipse = view;
+        self.ellipse.hidden = YES;
+    }
+    return _ellipse;
+}
+
+
 - (UIView *)line
 {
     if (_line == nil) {
@@ -50,6 +66,7 @@
         view.backgroundColor = YPColor_RGBA(20.0f, 80.0f, 200.0f, 0.7f);
         [self.navgationTabBar addSubview:view];
         self.line = view;
+        self.line.hidden = NO;
     }
     return _line;
 }
@@ -73,9 +90,7 @@
 
 - (void)setup
 {
-    CGFloat functionButtonX = YPScreenW;
-    
-    self.navgationTabBar.frame = CGRectMake(0, 0, functionButtonX, YPNavigationBarH);
+    self.navgationTabBar.frame = CGRectMake(0, 0, YPScreenW, YPNavigationBarH);
 }
 
 - (void)updateData
@@ -128,6 +143,8 @@
     
     [self showLineWithButtonWidth:[widths[0] floatValue]];
     
+    [self showEllipseWithButtonWidth:[widths[0] floatValue]];
+    
     return buttonX;
 }
 
@@ -137,9 +154,15 @@
     [_delegate itemDidSelectedWithIndex:self index:index];
 }
 
+
 - (void)showLineWithButtonWidth:(CGFloat)width
 {
     self.line.frame = CGRectMake(2.0f, YPNavigationBarH - 3.0f, width - 4.0f, 3.0f);
+}
+
+- (void)showEllipseWithButtonWidth:(CGFloat)width
+{
+    self.ellipse.frame = CGRectMake(2.0f, 8.0f, width - 4.0f, YPNavigationBarH - 16.0f);
 }
 
 #pragma mark - setter -
@@ -198,6 +221,10 @@
         CGFloat lineH = _line.frame.size.height;
         
         self.line.frame = CGRectMake(lineX + 2.0f, lineY, lineW, lineH);
+        
+        self.ellipse.frame = CGRectMake(self.line.frame.origin.x, self.ellipse.frame.origin.y, self.line.frame.size.width, self.ellipse.frame.size.height);
+        
+        
     }];
 }
 
@@ -234,16 +261,16 @@
     }
 }
 
-- (void)setType:(YPNavTabBar_Type)type
+- (void)setType:(YPNavTabBarType)type
 {
     _type = type;
     
     switch (type) {
-        case YPNavTabBar_TypeLine:
+        case YPNavTabBarTypeLine:
             self.line.hidden = NO;
             self.ellipse.hidden = YES;
             break;
-        case YPNavTabBar_TypeEllipse:
+        case YPNavTabBarTypeEllipse:
             self.line.hidden = YES;
             self.ellipse.hidden = NO;
             break;
