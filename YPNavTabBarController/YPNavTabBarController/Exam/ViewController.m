@@ -58,7 +58,7 @@
     YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
     navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController, fiveViewController, sixViewController, sevenViewController, eightViewController, ninghtViewController];
     // 设置选项的位置(垂直方向)
-    navTabBarController.navTabBar_Y = 64;   // 默认为0
+    navTabBarController.navTabBar_Y = 20;   // 默认为0
     // 设置内容视图的高度
 //    navTabBarController.contentViewH = 100; // 默认填充
     // 设置选项条的背景颜色

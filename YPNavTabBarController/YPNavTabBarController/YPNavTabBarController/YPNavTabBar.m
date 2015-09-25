@@ -24,12 +24,13 @@
 @property (nonatomic, weak) UIView *ellipse;
 
 
+
 @end
 
 @implementation YPNavTabBar
 
 
-#pragma mark - lazy - 
+#pragma mark - lazy -
 
 - (UIScrollView *)navgationTabBar
 {
@@ -42,6 +43,7 @@
     }
     return _navgationTabBar;
 }
+
 
 - (UIView *)ellipse
 {
@@ -145,6 +147,7 @@
     
     [self showEllipseWithButtonWidth:[widths[0] floatValue]];
     
+    
     return buttonX;
 }
 
@@ -164,6 +167,7 @@
 {
     self.ellipse.frame = CGRectMake(2.0f, 8.0f, width - 4.0f, YPNavigationBarH - 16.0f);
 }
+
 
 #pragma mark - setter -
 - (void)setProgress:(CGFloat)progress
