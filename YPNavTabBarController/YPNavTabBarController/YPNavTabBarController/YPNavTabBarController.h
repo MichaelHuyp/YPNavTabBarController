@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "YPNavTabBar.h"
 
-
 @interface YPNavTabBarController : UIViewController
 
 @property (nonatomic, strong) NSArray *subViewControllers;
@@ -22,6 +21,9 @@
 
 /** 设置风格 */
 @property (nonatomic, assign) YPNavTabBarType navTabBar_type;
+
+/** 设置选项排列风格 */
+@property (nonatomic, assign) YPNavTabBarStyle navTabBar_style;
 
 /** 设置选项卡的背景颜色 */
 @property (nonatomic, strong) UIColor *navTabBar_color;

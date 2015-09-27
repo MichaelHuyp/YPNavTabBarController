@@ -65,12 +65,12 @@
     ninghtViewController3.title = @"测试133333333";
     ninghtViewController3.view.backgroundColor = [UIColor redColor];
     
-//    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
-//    navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController, fiveViewController, sixViewController, sevenViewController, eightViewController, ninghtViewController,ninghtViewController1, ninghtViewController2, ninghtViewController3];
-    
-    
     YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
-    navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController];
+    navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController, fiveViewController];
+    
+    
+//    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
+//    navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController];
     
     
     
@@ -88,6 +88,8 @@
 //    navTabBarController.navTabBar_selectedTitle_color = [UIColor orangeColor];
     
     navTabBarController.navTabBar_type = YPNavTabBarTypeEllipse;
+    
+//    navTabBarController.navTabBar_style = YPNavTabBarStyleCenter;
     
     [navTabBarController addParentController:self];
     

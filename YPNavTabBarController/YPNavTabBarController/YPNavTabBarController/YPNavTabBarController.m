@@ -218,6 +218,13 @@
     self.navTabBar.type = navTabBar_type;
 }
 
+- (void)setNavTabBar_style:(YPNavTabBarStyle)navTabBar_style
+{
+    _navTabBar_style = navTabBar_style;
+    
+    self.navTabBar.style = navTabBar_style;
+}
+
 @end
 
 

@@ -25,6 +25,7 @@
 
 
 
+
 @end
 
 @implementation YPNavTabBar
@@ -97,10 +98,16 @@
 
 - (void)updateData
 {
-    self.itemsWidth = [self getButtonsWidthWithTitles:self.itemTitles];
+    // 如果没有值直接返回
+    if (!self.itemTitles.count) return;
     
-    if (self.itemTitles.count) {
-        CGFloat contentWidth = [self contentWidthAndAddNavTabBarItemsWithButtonsWidth:self.itemsWidth];
+
+    if (self.itemTitles.count <= 4) { // 当按钮小于等于4个的时候并列排布
+        CGFloat btnWidth = YPScreenW / self.itemTitles.count;
+        self.navgationTabBar.contentSize = CGSizeMake(btnWidth * self.itemTitles.count, 0);
+        [self contentWidthAndAddNavTabBarItemsWithButtonsWidth:[self getButtonsWidthWithTitles:self.itemTitles]];
+    } else { // 对于4个的时候紧凑排布
+        CGFloat contentWidth = [self contentWidthAndAddNavTabBarItemsWithButtonsWidth:[self getButtonsWidthWithTitles:self.itemTitles]];
         self.navgationTabBar.contentSize = CGSizeMake(contentWidth, 0);
     }
 }
@@ -108,19 +115,30 @@
 - (NSArray *)getButtonsWidthWithTitles:(NSArray *)titles
 {
     NSMutableArray *widths = [NSMutableArray arrayWithCapacity:titles.count];
-    
-    for (NSString *title in titles)
-    {
-        CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
-        NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-        attributes[NSFontAttributeName] = [UIFont systemFontOfSize:[UIFont systemFontSize]];
-        
-        size = [title boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
-        
-        NSNumber *width = [NSNumber numberWithFloat:size.width + 40.0f];
-        [widths addObject:width];
+
+    if (titles.count <= 4) { // 当按钮小于等于4个的时候并列排布
+        for (int i = 0; i < titles.count; i++) {
+            NSNumber *width = [NSNumber numberWithFloat:self.navgationTabBar.contentSize.width / titles.count];
+            NSLog(@"%@",width);
+            [widths addObject:width];
+        }
+    } else { // 当按钮多于4个的时候紧凑排布
+        for (NSString *title in titles)
+        {
+            CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+            NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+            attributes[NSFontAttributeName] = [UIFont systemFontOfSize:[UIFont systemFontSize]];
+            
+            size = [title boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+            
+            NSNumber *width = [NSNumber numberWithFloat:size.width + 40.0f];
+            [widths addObject:width];
+        }
     }
     
+    
+    // 存储所有按钮的长度
+    self.itemsWidth = widths;
     
     return widths;
 }
@@ -281,6 +299,11 @@
         default:
             break;
     }
+}
+
+- (void)setStyle:(YPNavTabBarStyle)style
+{
+    _style = style;
 }
 
 @end

@@ -17,6 +17,15 @@ typedef enum {
     YPNavTabBarTypeArrow
 } YPNavTabBarType;
 
+typedef enum {
+    /** 自适应模式 */
+    YPNavTabBarStyleAdjust,
+    /** 紧凑模式 */
+    YPNavTabBarStyleCompact,
+    /** 居中模式 */
+    YPNavTabBarStyleCenter
+} YPNavTabBarStyle;
+
 
 @class YPNavTabBar;
 
@@ -61,6 +70,9 @@ typedef enum {
 
 /** 选项风格 */
 @property (nonatomic, assign) YPNavTabBarType type;
+
+/** 选项文字排列风格 */
+@property (nonatomic, assign) YPNavTabBarStyle style;
 
 /**
  *  刷新数据
