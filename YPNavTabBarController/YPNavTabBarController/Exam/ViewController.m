@@ -55,8 +55,25 @@
     ninghtViewController.title = @"科技";
     ninghtViewController.view.backgroundColor = [UIColor redColor];
     
+    UIViewController *ninghtViewController1 = [[UIViewController alloc] init];
+    ninghtViewController1.title = @"测试1";
+    ninghtViewController1.view.backgroundColor = [UIColor redColor];
+    UIViewController *ninghtViewController2 = [[UIViewController alloc] init];
+    ninghtViewController2.title = @"测试2222";
+    ninghtViewController2.view.backgroundColor = [UIColor redColor];
+    UIViewController *ninghtViewController3 = [[UIViewController alloc] init];
+    ninghtViewController3.title = @"测试133333333";
+    ninghtViewController3.view.backgroundColor = [UIColor redColor];
+    
+//    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
+//    navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController, fiveViewController, sixViewController, sevenViewController, eightViewController, ninghtViewController,ninghtViewController1, ninghtViewController2, ninghtViewController3];
+    
+    
     YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
-    navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController, fiveViewController, sixViewController, sevenViewController, eightViewController, ninghtViewController];
+    navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController];
+    
+    
+    
     // 设置选项的位置(垂直方向)
     navTabBarController.navTabBar_Y = 20;   // 默认为0
     // 设置内容视图的高度

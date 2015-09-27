@@ -191,6 +191,7 @@
 
 - (void)addParentController:(UIViewController *)viewController
 {
+    viewController.automaticallyAdjustsScrollViewInsets = NO;
     [viewController addChildViewController:self];
     [viewController.view addSubview:self.view];
 }
