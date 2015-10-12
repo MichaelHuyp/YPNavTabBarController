@@ -9,7 +9,7 @@
 #import "YPNavTabBarController.h"
 #import "YPNavTabBarControllerConst.h"
 
-@interface YPNavTabBarController () <YPNavTabBarDelegate>
+@interface YPNavTabBarController () <YPNavTabBarDelegate,UIScrollViewDelegate>
 
 /** 索引 */
 @property (nonatomic, assign) NSInteger currentIndex;
@@ -20,9 +20,13 @@
 /** 滚动主视图 */
 @property (nonatomic, weak) UIScrollView *mainView;
 
+/** 开始拖动时的偏移量 */
+@property (nonatomic, assign) CGFloat startContentOffsetX;
+
 @end
 
 @implementation YPNavTabBarController
+
 
 #pragma mark - lazy -
 
@@ -35,6 +39,7 @@
         mainView.bounces = NO;
         mainView.showsHorizontalScrollIndicator = NO;
         mainView.contentSize = CGSizeMake(YPScreenW * self.subViewControllers.count, 0);
+        mainView.delegate = self;
         [self.view addSubview:mainView];
         self.mainView = mainView;
     }
@@ -104,8 +109,6 @@
     [self.mainView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
-bool addTwoVcFlag;
-
 #pragma mark - KVO -
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -113,7 +116,10 @@ bool addTwoVcFlag;
     
     if ([keyPath isEqualToString:@"contentOffset"] && object == self.mainView) {
         
-        _currentIndex = scrollView.contentOffset.x / YPScreenW;
+        _currentIndex = scrollView.contentOffset.x / (YPScreenW + 1);
+        
+        // 左方目前的index
+        int leftCurrentIndex = scrollView.contentOffset.x / (YPScreenW - 1);
         
         _navTabBar.currentItemIndex = _currentIndex;
         
@@ -121,31 +127,27 @@ bool addTwoVcFlag;
         
         _navTabBar.progress = progress;
         
-        
-        if (scrollView.contentOffset.x >= 0.01f && scrollView.contentOffset.x < YPScreenW) { // 说明是向右拖动
-            
-            if (!addTwoVcFlag) {
-                // 加载第二个视图
-                UIViewController *twoVc = (UIViewController *)self.subViewControllers[1];
-                twoVc.view.frame = CGRectMake(YPScreenW, 0, YPScreenW, self.mainView.frame.size.height);
-                [self.mainView addSubview:twoVc.view];
-                [self addChildViewController:twoVc];
-            }
-            
-            addTwoVcFlag = YES;
-        }
-        
-        int targetIdx = scrollView.contentOffset.x / (YPScreenW + 1);
-        
         // 加载子视图
         [_subViewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-            if (idx <= 1) return;
-            if ((targetIdx + 1) == idx) {
-                UIViewController *viewController = (UIViewController *)self.subViewControllers[idx];
-                viewController.view.frame = CGRectMake(idx * YPScreenW, 0, YPScreenW, self.mainView.frame.size.height);
-                [self.mainView addSubview:viewController.view];
-                [self addChildViewController:viewController];
+            
+            if (_startContentOffsetX < scrollView.contentOffset.x) {
+                if (_currentIndex >= idx) {
+                    return;
+                }
+                UIViewController *vc = (UIViewController *)self.subViewControllers[_currentIndex + 1];
+                vc.view.frame = CGRectMake(YPScreenW * (_currentIndex + 1), 0, YPScreenW, self.mainView.frame.size.height);
+                [self.mainView addSubview:vc.view];
+                [self addChildViewController:vc];
+                
+                
+            } else if (_startContentOffsetX > scrollView.contentOffset.x) {
+            
+                UIViewController *vc = (UIViewController *)self.subViewControllers[leftCurrentIndex];
+                vc.view.frame = CGRectMake(YPScreenW * leftCurrentIndex, 0, YPScreenW, self.mainView.frame.size.height);
+                [self.mainView addSubview:vc.view];
+                [self addChildViewController:vc];
             }
+
         }];
         
     }
@@ -156,13 +158,12 @@ bool addTwoVcFlag;
 
 - (void)itemDidSelectedWithIndex:(YPNavTabBar *)navTabBar index:(NSInteger)index
 {
-    [self.mainView setContentOffset:CGPointMake(index * YPScreenW, 0) animated:NO];
-    
     UIViewController *selectedVc = (UIViewController *)self.subViewControllers[index];
     selectedVc.view.frame = CGRectMake(YPScreenW * index, 0, YPScreenW, self.mainView.frame.size.height);
     [self.mainView addSubview:selectedVc.view];
     [self addChildViewController:selectedVc];
     
+    [self.mainView setContentOffset:CGPointMake(index * YPScreenW, 0) animated:NO];
     
     for (int i = 0; i < (int)navTabBar.items.count; i++) {
         
@@ -175,6 +176,15 @@ bool addTwoVcFlag;
     }
     
 }
+
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{    //拖动前的起始坐标
+    
+    _startContentOffsetX = scrollView.contentOffset.x;
+    
+}
+
+
 
 
 #pragma mark - 公共方法 -
