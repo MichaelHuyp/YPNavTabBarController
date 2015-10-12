@@ -12,6 +12,8 @@
 #import "TwoViewController.h"
 #import "ThreeViewController.h"
 #import "FourViewController.h"
+#import "FiveViewController.h"
+#import "SixViewController.h"
 
 @interface ViewController ()
 
@@ -72,16 +74,20 @@
     
     
     OneViewController *oneVc = [[OneViewController alloc] init];
-    oneVc.title = @"1";
+    oneVc.title = @"娱乐";
     TwoViewController *twoVc = [[TwoViewController alloc] init];
-    twoVc.title = @"2";
+    twoVc.title = @"体育";
     ThreeViewController *threeVc = [[ThreeViewController alloc] init];
-    threeVc.title = @"3";
+    threeVc.title = @"北京";
     FourViewController *fourVc = [[FourViewController alloc] init];
-    fourVc.title = @"4";
+    fourVc.title = @"国际新闻";
+    FiveViewController *fiveVc = [[FiveViewController alloc] init];
+    fiveVc.title = @"测试模块1";
+    SixViewController *sixVc = [[SixViewController alloc] init];
+    sixVc.title = @"测试模块22";
     
     YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
-    navTabBarController.subViewControllers = @[oneVc, twoVc, threeVc, fourVc];
+    navTabBarController.subViewControllers = @[oneVc, twoVc, threeVc, fourVc , fiveVc,sixVc];
     
     
 //    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];

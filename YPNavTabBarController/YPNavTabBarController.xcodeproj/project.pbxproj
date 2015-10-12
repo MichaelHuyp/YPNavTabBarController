@@ -23,6 +23,8 @@
 		4E67F19B1BCBB9D900C02C24 /* TwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E67F1991BCBB9D900C02C24 /* TwoViewController.xib */; };
 		4E67F19E1BCBB9E200C02C24 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E67F19D1BCBB9E200C02C24 /* ThreeViewController.m */; };
 		4E67F1A11BCBB9EF00C02C24 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E67F1A01BCBB9EF00C02C24 /* FourViewController.m */; };
+		4E67F1A41BCBBBD800C02C24 /* FiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E67F1A31BCBBBD800C02C24 /* FiveViewController.m */; };
+		4E67F1A71BCBBBE100C02C24 /* SixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E67F1A61BCBBBE100C02C24 /* SixViewController.m */; };
 		4E6CC72F1BB3E7B600FB2B8C /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6CC72E1BB3E7B600FB2B8C /* Reveal.framework */; };
 		4E6CC7321BB3F11100FB2B8C /* UIView+YPNavTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6CC7311BB3F11100FB2B8C /* UIView+YPNavTabBar.m */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,10 @@
 		4E67F19D1BCBB9E200C02C24 /* ThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
 		4E67F19F1BCBB9EF00C02C24 /* FourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
 		4E67F1A01BCBB9EF00C02C24 /* FourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
+		4E67F1A21BCBBBD800C02C24 /* FiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiveViewController.h; sourceTree = "<group>"; };
+		4E67F1A31BCBBBD800C02C24 /* FiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiveViewController.m; sourceTree = "<group>"; };
+		4E67F1A51BCBBBE100C02C24 /* SixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixViewController.h; sourceTree = "<group>"; };
+		4E67F1A61BCBBBE100C02C24 /* SixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixViewController.m; sourceTree = "<group>"; };
 		4E6CC72E1BB3E7B600FB2B8C /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		4E6CC7301BB3F11100FB2B8C /* UIView+YPNavTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YPNavTabBar.h"; sourceTree = "<group>"; };
 		4E6CC7311BB3F11100FB2B8C /* UIView+YPNavTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YPNavTabBar.m"; sourceTree = "<group>"; };
@@ -166,6 +172,10 @@
 				4E67F19D1BCBB9E200C02C24 /* ThreeViewController.m */,
 				4E67F19F1BCBB9EF00C02C24 /* FourViewController.h */,
 				4E67F1A01BCBB9EF00C02C24 /* FourViewController.m */,
+				4E67F1A21BCBBBD800C02C24 /* FiveViewController.h */,
+				4E67F1A31BCBBBD800C02C24 /* FiveViewController.m */,
+				4E67F1A51BCBBBE100C02C24 /* SixViewController.h */,
+				4E67F1A61BCBBBE100C02C24 /* SixViewController.m */,
 			);
 			path = Exam;
 			sourceTree = "<group>";
@@ -287,10 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E67F1A41BCBBBD800C02C24 /* FiveViewController.m in Sources */,
 				4E6CC7321BB3F11100FB2B8C /* UIView+YPNavTabBar.m in Sources */,
 				4E53594A1BB3CAA10030679A /* YPNavTabBarController.m in Sources */,
 				4E5359401BB3C7FA0030679A /* ViewController.m in Sources */,
 				4E53594D1BB3CE0B0030679A /* YPNavTabBar.m in Sources */,
+				4E67F1A71BCBBBE100C02C24 /* SixViewController.m in Sources */,
 				4E53593F1BB3C7FA0030679A /* main.m in Sources */,
 				4E53593E1BB3C7FA0030679A /* AppDelegate.m in Sources */,
 				4E67F19A1BCBB9D900C02C24 /* TwoViewController.m in Sources */,
