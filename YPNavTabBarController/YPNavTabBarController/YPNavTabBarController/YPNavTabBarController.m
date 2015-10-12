@@ -90,7 +90,13 @@
     
     [self.mainView addObserver:self forKeyPath:@"contentOffset" options:options context:nil];
     
+    // 加载第一个视图
+    UIViewController *firstVc = (UIViewController *)self.subViewControllers[0];
+    firstVc.view.frame = CGRectMake(0, 0, YPScreenW, self.mainView.frame.size.height);
+    [self.mainView addSubview:firstVc.view];
+    [self addChildViewController:firstVc];
     
+#if 0
     // 加载子视图
     [_subViewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
         
@@ -99,6 +105,7 @@
         [self.mainView addSubview:viewController.view];
         [self addChildViewController:viewController];
     }];
+#endif
     
     
     [self.view bringSubviewToFront:self.navTabBar];
@@ -115,7 +122,7 @@
     [self.mainView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
-
+bool twoVcLoadFlag;
 
 #pragma mark - KVO -
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -131,6 +138,34 @@
         CGFloat progress = scrollView.contentOffset.x / YPScreenW;
         
         _navTabBar.progress = progress;
+        
+        
+        if (scrollView.contentOffset.x >= 0.01f && scrollView.contentOffset.x < YPScreenW) { // 说明是向右拖动
+            if (!twoVcLoadFlag) {
+                // 加载第二个视图
+                UIViewController *twoVc = (UIViewController *)self.subViewControllers[1];
+                twoVc.view.frame = CGRectMake(YPScreenW, 0, YPScreenW, self.mainView.frame.size.height);
+                [self.mainView addSubview:twoVc.view];
+                [self addChildViewController:twoVc];
+            }
+            twoVcLoadFlag = YES;
+        }
+        
+        // 加载子视图
+        
+        
+        [_subViewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+            
+            if (idx > 1) {
+                
+                if ((_currentIndex + 1) == idx) {
+                    UIViewController *viewController = (UIViewController *)self.subViewControllers[idx];
+                    viewController.view.frame = CGRectMake(idx * YPScreenW, 0, YPScreenW, self.mainView.frame.size.height);
+                    [self.mainView addSubview:viewController.view];
+                    [self addChildViewController:viewController];
+                }
+            }
+        }];
         
     }
 }

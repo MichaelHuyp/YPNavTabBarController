@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 #import "YPNavTabBarController.h"
+#import "OneViewController.h"
+#import "TwoViewController.h"
+#import "ThreeViewController.h"
+#import "FourViewController.h"
 
 @interface ViewController ()
 
@@ -65,8 +69,19 @@
     ninghtViewController3.title = @"测试133333333";
     ninghtViewController3.view.backgroundColor = [UIColor redColor];
     
+    
+    
+    OneViewController *oneVc = [[OneViewController alloc] init];
+    oneVc.title = @"1";
+    TwoViewController *twoVc = [[TwoViewController alloc] init];
+    twoVc.title = @"2";
+    ThreeViewController *threeVc = [[ThreeViewController alloc] init];
+    threeVc.title = @"3";
+    FourViewController *fourVc = [[FourViewController alloc] init];
+    fourVc.title = @"4";
+    
     YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
-    navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController, fiveViewController];
+    navTabBarController.subViewControllers = @[oneVc, twoVc, threeVc, fourVc];
     
     
 //    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
@@ -87,14 +102,11 @@
     // 设置选中时的标题字体颜色
 //    navTabBarController.navTabBar_selectedTitle_color = [UIColor orangeColor];
     
-    navTabBarController.navTabBar_type = YPNavTabBarTypeEllipse;
+    navTabBarController.navTabBar_type = YPNavTabBarTypeLine;
     
 //    navTabBarController.navTabBar_style = YPNavTabBarStyleCenter;
     
     [navTabBarController addParentController:self];
-    
-    
-
 }
 
 @end

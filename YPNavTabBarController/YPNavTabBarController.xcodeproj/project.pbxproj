@@ -17,6 +17,12 @@
 		4E5359471BB3CA550030679A /* YPNavTabBarControllerConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5359461BB3CA550030679A /* YPNavTabBarControllerConst.m */; };
 		4E53594A1BB3CAA10030679A /* YPNavTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5359491BB3CAA10030679A /* YPNavTabBarController.m */; };
 		4E53594D1BB3CE0B0030679A /* YPNavTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E53594C1BB3CE0B0030679A /* YPNavTabBar.m */; };
+		4E67F1951BCBB9CD00C02C24 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E67F1931BCBB9CD00C02C24 /* OneViewController.m */; };
+		4E67F1961BCBB9CD00C02C24 /* OneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E67F1941BCBB9CD00C02C24 /* OneViewController.xib */; };
+		4E67F19A1BCBB9D900C02C24 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E67F1981BCBB9D900C02C24 /* TwoViewController.m */; };
+		4E67F19B1BCBB9D900C02C24 /* TwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E67F1991BCBB9D900C02C24 /* TwoViewController.xib */; };
+		4E67F19E1BCBB9E200C02C24 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E67F19D1BCBB9E200C02C24 /* ThreeViewController.m */; };
+		4E67F1A11BCBB9EF00C02C24 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E67F1A01BCBB9EF00C02C24 /* FourViewController.m */; };
 		4E6CC72F1BB3E7B600FB2B8C /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6CC72E1BB3E7B600FB2B8C /* Reveal.framework */; };
 		4E6CC7321BB3F11100FB2B8C /* UIView+YPNavTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6CC7311BB3F11100FB2B8C /* UIView+YPNavTabBar.m */; };
 /* End PBXBuildFile section */
@@ -51,6 +57,16 @@
 		4E5359491BB3CAA10030679A /* YPNavTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPNavTabBarController.m; sourceTree = "<group>"; };
 		4E53594B1BB3CE0B0030679A /* YPNavTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPNavTabBar.h; sourceTree = "<group>"; };
 		4E53594C1BB3CE0B0030679A /* YPNavTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPNavTabBar.m; sourceTree = "<group>"; };
+		4E67F1921BCBB9CD00C02C24 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneViewController.h; sourceTree = "<group>"; };
+		4E67F1931BCBB9CD00C02C24 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
+		4E67F1941BCBB9CD00C02C24 /* OneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneViewController.xib; sourceTree = "<group>"; };
+		4E67F1971BCBB9D900C02C24 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
+		4E67F1981BCBB9D900C02C24 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
+		4E67F1991BCBB9D900C02C24 /* TwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoViewController.xib; sourceTree = "<group>"; };
+		4E67F19C1BCBB9E200C02C24 /* ThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
+		4E67F19D1BCBB9E200C02C24 /* ThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
+		4E67F19F1BCBB9EF00C02C24 /* FourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
+		4E67F1A01BCBB9EF00C02C24 /* FourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
 		4E6CC72E1BB3E7B600FB2B8C /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		4E6CC7301BB3F11100FB2B8C /* UIView+YPNavTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YPNavTabBar.h"; sourceTree = "<group>"; };
 		4E6CC7311BB3F11100FB2B8C /* UIView+YPNavTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YPNavTabBar.m"; sourceTree = "<group>"; };
@@ -140,6 +156,16 @@
 				4E53593B1BB3C7FA0030679A /* main.m */,
 				4E53593C1BB3C7FA0030679A /* ViewController.h */,
 				4E53593D1BB3C7FA0030679A /* ViewController.m */,
+				4E67F1921BCBB9CD00C02C24 /* OneViewController.h */,
+				4E67F1931BCBB9CD00C02C24 /* OneViewController.m */,
+				4E67F1941BCBB9CD00C02C24 /* OneViewController.xib */,
+				4E67F1971BCBB9D900C02C24 /* TwoViewController.h */,
+				4E67F1981BCBB9D900C02C24 /* TwoViewController.m */,
+				4E67F1991BCBB9D900C02C24 /* TwoViewController.xib */,
+				4E67F19C1BCBB9E200C02C24 /* ThreeViewController.h */,
+				4E67F19D1BCBB9E200C02C24 /* ThreeViewController.m */,
+				4E67F19F1BCBB9EF00C02C24 /* FourViewController.h */,
+				4E67F1A01BCBB9EF00C02C24 /* FourViewController.m */,
 			);
 			path = Exam;
 			sourceTree = "<group>";
@@ -242,6 +268,8 @@
 				4E53591E1BB3C74F0030679A /* Main.storyboard in Resources */,
 				4E5359231BB3C74F0030679A /* LaunchScreen.xib in Resources */,
 				4E5359201BB3C74F0030679A /* Images.xcassets in Resources */,
+				4E67F19B1BCBB9D900C02C24 /* TwoViewController.xib in Resources */,
+				4E67F1961BCBB9CD00C02C24 /* OneViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +293,11 @@
 				4E53594D1BB3CE0B0030679A /* YPNavTabBar.m in Sources */,
 				4E53593F1BB3C7FA0030679A /* main.m in Sources */,
 				4E53593E1BB3C7FA0030679A /* AppDelegate.m in Sources */,
+				4E67F19A1BCBB9D900C02C24 /* TwoViewController.m in Sources */,
 				4E5359471BB3CA550030679A /* YPNavTabBarControllerConst.m in Sources */,
+				4E67F1951BCBB9CD00C02C24 /* OneViewController.m in Sources */,
+				4E67F1A11BCBB9EF00C02C24 /* FourViewController.m in Sources */,
+				4E67F19E1BCBB9E200C02C24 /* ThreeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -380,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
