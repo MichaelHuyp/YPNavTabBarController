@@ -135,10 +135,12 @@ bool addTwoVcFlag;
             addTwoVcFlag = YES;
         }
         
+        int targetIdx = scrollView.contentOffset.x / (YPScreenW + 1);
+        
         // 加载子视图
         [_subViewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
             if (idx <= 1) return;
-            if ((_currentIndex + 1) == idx) {
+            if ((targetIdx + 1) == idx) {
                 UIViewController *viewController = (UIViewController *)self.subViewControllers[idx];
                 viewController.view.frame = CGRectMake(idx * YPScreenW, 0, YPScreenW, self.mainView.frame.size.height);
                 [self.mainView addSubview:viewController.view];
