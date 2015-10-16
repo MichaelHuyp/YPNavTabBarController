@@ -172,7 +172,11 @@
 - (void)itemPressed:(UIButton *)button
 {
     NSInteger index = [self.items indexOfObject:button];
-    [_delegate itemDidSelectedWithIndex:self index:index];
+    
+    if ([_delegate respondsToSelector:@selector(itemDidSelectedWithIndex:index:)]) {
+        [_delegate itemDidSelectedWithIndex:self index:index];
+    }
+    
 }
 
 
@@ -232,9 +236,10 @@
         
         if ((_progress - (int)_progress) == 0) {
             lineX = button.frame.origin.x;
-            
             // 回调代理方法
-            [self.delegate itemDidSelectedWithIndex:self index:_progress];
+            if ([_delegate respondsToSelector:@selector(itemDidSelectedWithIndex:index:)]) {
+                [self.delegate itemDidSelectedWithIndex:self index:_progress];
+            }
         }
         
         
@@ -305,6 +310,10 @@
 {
     _style = style;
 }
+
+
+
+
 
 @end
 

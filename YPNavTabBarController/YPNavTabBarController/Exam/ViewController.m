@@ -88,31 +88,25 @@
     
     YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
     navTabBarController.subViewControllers = @[oneVc, twoVc, threeVc, fourVc , fiveVc,sixVc];
-    
-    
-//    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
-//    navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController, fourViewController];
-    
-    
-    
     // 设置选项的位置(垂直方向)
     navTabBarController.navTabBar_Y = 20;   // 默认为0
-    // 设置内容视图的高度
-//    navTabBarController.contentViewH = 100; // 默认填充
-    // 设置选项条的背景颜色
-//    navTabBarController.navTabBar_color = [UIColor redColor];
-    // 设置选项条的导航条颜色
-//    navTabBarController.navTabBarLine_color = [UIColor yellowColor];
-    // 设置未被选中时的标题字体颜色
-//    navTabBarController.navTabBar_normalTitle_color = [UIColor purpleColor];
-    // 设置选中时的标题字体颜色
-//    navTabBarController.navTabBar_selectedTitle_color = [UIColor orangeColor];
-    
-    navTabBarController.navTabBar_type = YPNavTabBarTypeLine;
-    
-//    navTabBarController.navTabBar_style = YPNavTabBarStyleCenter;
-    
     [navTabBarController addParentController:self];
+    // 设置默认选中索引
+    navTabBarController.currentIndex = 5;
+    
+    // 设置内容视图的高度
+    // navTabBarController.contentViewH = 100; // 默认填充
+    // 设置选项条的背景颜色
+    // navTabBarController.navTabBar_color = [UIColor redColor];
+    // 设置选项条的导航条颜色
+    // navTabBarController.navTabBarLine_color = [UIColor yellowColor];
+    // 设置未被选中时的标题字体颜色
+    // navTabBarController.navTabBar_normalTitle_color = [UIColor purpleColor];
+    // 设置选中时的标题字体颜色
+    // navTabBarController.navTabBar_selectedTitle_color = [UIColor orangeColor];
+    // navTabBarController.navTabBar_style = YPNavTabBarStyleCenter;
+    
+    
 }
 
 @end

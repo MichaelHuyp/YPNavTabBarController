@@ -11,8 +11,6 @@
 
 @interface YPNavTabBarController () <YPNavTabBarDelegate,UIScrollViewDelegate>
 
-/** 索引 */
-@property (nonatomic, assign) NSInteger currentIndex;
 /** 选项标题数组 */
 @property (nonatomic, strong) NSMutableArray *titles;
 /** 选线条 */
@@ -65,9 +63,6 @@
 
 - (void)setup
 {
-    // 初始化索引为1
-    self.currentIndex = 1;
-    
     // 初始化选项卡标题数组
     self.titles = [[NSMutableArray alloc] initWithCapacity:self.subViewControllers.count];
     
@@ -84,11 +79,13 @@
     // 初始化基本信息
     [self setup];
     
+    // 初始化滚动主视图
+    [self mainView];
+    
     // 初始化选项条
     [self navTabBar];
     
-    // 初始化滚动主视图
-    [self mainView];
+
     
     // 开启KVO监听
     NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
@@ -178,6 +175,8 @@
 }
 
 
+#pragma mark - UIScrollViewDelegate -
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{    //拖动前的起始坐标
     
     _startContentOffsetX = scrollView.contentOffset.x;
@@ -254,6 +253,15 @@
     _navTabBar_style = navTabBar_style;
     
     self.navTabBar.style = navTabBar_style;
+}
+
+- (void)setCurrentIndex:(NSInteger)currentIndex
+{
+    if (currentIndex < 0 || currentIndex >= self.subViewControllers.count) return;
+    
+    _currentIndex = currentIndex;
+    
+    self.navTabBar.progress = currentIndex;
 }
 
 @end

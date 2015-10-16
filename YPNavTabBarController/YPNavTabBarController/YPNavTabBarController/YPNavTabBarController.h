@@ -37,6 +37,9 @@
 /** 选项标题选中状态文字的颜色 */
 @property (nonatomic, strong) UIColor *navTabBar_selectedTitle_color;
 
+/** 索引 */
+@property (nonatomic, assign) NSInteger currentIndex;
+
 - (void)addParentController:(UIViewController *)viewController;
 
 @end
