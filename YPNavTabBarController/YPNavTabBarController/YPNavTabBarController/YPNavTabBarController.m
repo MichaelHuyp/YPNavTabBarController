@@ -8,6 +8,13 @@
 
 #import "YPNavTabBarController.h"
 #import "YPNavTabBarControllerConst.h"
+#import <objc/runtime.h>
+
+@interface UIViewController ()
+
+@property (nonatomic, strong, readwrite) YPNavTabBarController *navTabBarController;
+
+@end
 
 @interface YPNavTabBarController () <YPNavTabBarDelegate,UIScrollViewDelegate>
 
@@ -61,6 +68,24 @@
 
 #pragma mark - 初始化 -
 
+- (void)addParentController:(UIViewController *)viewController
+{
+    viewController.automaticallyAdjustsScrollViewInsets = NO;
+    [viewController addChildViewController:self];
+    [viewController.view addSubview:self.view];
+}
+
+- (instancetype)initWithParentViewController:(UIViewController *)parentViewController
+{
+    if (self = [super init]) {
+        parentViewController.navTabBarController = self;
+        parentViewController.automaticallyAdjustsScrollViewInsets = NO;
+        [parentViewController addChildViewController:self];
+        [parentViewController.view addSubview:self.view];
+    }
+    return self;
+}
+
 - (void)setup
 {
     // 初始化选项卡标题数组
@@ -70,6 +95,11 @@
     {
         [self.titles addObject:viewController.title];
     }
+    
+    // 默认navBar高度为0
+    self.navTabBar_Y = 0;
+    // 默认索引为0
+    self.currentIndex = 0;
 }
 
 - (void)setSubViewControllers:(NSArray *)subViewControllers
@@ -187,7 +217,7 @@
 
 
 #pragma mark - 公共方法 -
-
+#pragma mark setter
 - (void)setNavTabBar_Y:(CGFloat)navTabBar_Y
 {
     _navTabBar_Y = navTabBar_Y;
@@ -217,15 +247,6 @@
     
     self.navTabBar.navgationTabBar_lineColor = navTabBarLine_color;
 }
-
-
-- (void)addParentController:(UIViewController *)viewController
-{
-    viewController.automaticallyAdjustsScrollViewInsets = NO;
-    [viewController addChildViewController:self];
-    [viewController.view addSubview:self.view];
-}
-
 
 - (void)setNavTabBar_normalTitle_color:(UIColor *)navTabBar_normalTitle_color
 {
@@ -262,6 +283,24 @@
     _currentIndex = currentIndex;
     
     self.navTabBar.progress = currentIndex;
+}
+
+@end
+
+
+
+@implementation UIViewController (YPNavTabBarControllerItem)
+
+const char key;
+
+- (void)setNavTabBarController:(YPNavTabBarController *)navTabBarController
+{
+    objc_setAssociatedObject(self, &key, navTabBarController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (YPNavTabBarController *)navTabBarController
+{
+    return objc_getAssociatedObject(self, &key);
 }
 
 @end

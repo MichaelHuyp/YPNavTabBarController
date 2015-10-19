@@ -86,13 +86,15 @@
     SixViewController *sixVc = [[SixViewController alloc] init];
     sixVc.title = @"测试模块22";
     
-    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] init];
+    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] initWithParentViewController:self];
     navTabBarController.subViewControllers = @[oneVc, twoVc, threeVc, fourVc , fiveVc,sixVc];
+    
+    
+    
     // 设置选项的位置(垂直方向)
     navTabBarController.navTabBar_Y = 20;   // 默认为0
-    [navTabBarController addParentController:self];
     // 设置默认选中索引
-    navTabBarController.currentIndex = 5;
+//    navTabBarController.currentIndex = 5;
     
     // 设置内容视图的高度
     // navTabBarController.contentViewH = 100; // 默认填充
@@ -105,7 +107,6 @@
     // 设置选中时的标题字体颜色
     // navTabBarController.navTabBar_selectedTitle_color = [UIColor orangeColor];
     // navTabBarController.navTabBar_style = YPNavTabBarStyleCenter;
-    
     
 }
 

@@ -11,6 +11,7 @@
 
 @interface YPNavTabBarController : UIViewController
 
+/** 子控制器 */
 @property (nonatomic, strong) NSArray *subViewControllers;
 
 /** 选项条顶端距离父视图顶端的距离 */
@@ -40,7 +41,19 @@
 /** 索引 */
 @property (nonatomic, assign) NSInteger currentIndex;
 
-- (void)addParentController:(UIViewController *)viewController;
+- (instancetype)initWithParentViewController:(UIViewController *)parentViewController;
+
+/**
+ *  此方法已过期. 请使用'initWithParentViewController:'
+ */
+- (void)addParentController:(UIViewController *)viewController __deprecated_msg("此方法已过期. 请使用'initWithParentViewController:'");
+
+
+@end
+
+@interface UIViewController (YPNavTabBarControllerItem)
+
+@property (nonatomic, strong, readonly) YPNavTabBarController *navTabBarController;
 
 @end
 
