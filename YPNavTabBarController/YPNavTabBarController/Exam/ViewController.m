@@ -94,7 +94,9 @@
     // 设置选项的位置(垂直方向)
     navTabBarController.navTabBar_Y = 20;   // 默认为0
     // 设置默认选中索引
-//    navTabBarController.currentIndex = 5;
+    navTabBarController.currentIndex = 4;
+    
+    navTabBarController.navTabBar_type = YPNavTabBarTypeEllipse;
     
     // 设置内容视图的高度
     // navTabBarController.contentViewH = 100; // 默认填充

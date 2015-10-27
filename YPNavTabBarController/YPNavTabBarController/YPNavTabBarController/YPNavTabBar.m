@@ -50,8 +50,6 @@
 {
     if (_ellipse == nil) {
         UIView *view = [[UIView alloc] init];
-//        view.layer.borderWidth = 1;
-//        view.layer.borderColor = YPColor_RGBA(200, 0, 0, 0.5).CGColor;
         view.layer.cornerRadius = 10;
         view.backgroundColor = YPColor_RGBA(200, 200, 200, 0.3);
         [self.navgationTabBar addSubview:view];
@@ -82,20 +80,22 @@
     return _items;
 }
 
-
+#pragma mark - Life Cycle -
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self setup];
+        // 准备工作
+        [self prepare];
     }
     return self;
 }
 
-- (void)setup
+- (void)prepare
 {
     self.navgationTabBar.frame = CGRectMake(0, 0, YPScreenW, YPNavigationBarH);
 }
 
+#pragma mark - 公共方法 -
 - (void)updateData
 {
     // 如果没有值直接返回
@@ -112,6 +112,7 @@
     }
 }
 
+#pragma mark - 私有方法 -
 - (NSArray *)getButtonsWidthWithTitles:(NSArray *)titles
 {
     NSMutableArray *widths = [NSMutableArray arrayWithCapacity:titles.count];

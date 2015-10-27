@@ -39,7 +39,7 @@
 {
     if (_mainView == nil) {
         UIScrollView *mainView = [[UIScrollView alloc] init];
-        mainView.frame = CGRectMake(0, CGRectGetMaxY(self.navTabBar.frame), YPScreenW, YPScreenH - CGRectGetMaxY(self.navTabBar.frame));
+        mainView.frame = CGRectMake(0, CGRectGetMaxY(self.navTabBar.frame), YPScreenW, YPScreenH - CGRectGetMaxY(self.navTabBar.frame) - YPStatusBarAndNavBar);
         mainView.pagingEnabled = YES;
         mainView.bounces = NO;
         mainView.showsHorizontalScrollIndicator = NO;
@@ -109,13 +109,11 @@
     // 初始化基本信息
     [self setup];
     
-    // 初始化滚动主视图
-    [self mainView];
-    
     // 初始化选项条
     [self navTabBar];
     
-
+    // 初始化滚动主视图
+    [self mainView];
     
     // 开启KVO监听
     NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
@@ -207,7 +205,7 @@
 
 #pragma mark - UIScrollViewDelegate -
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{    //拖动前的起始坐标
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{    // 记录拖动前的起始坐标
     
     _startContentOffsetX = scrollView.contentOffset.x;
     
@@ -224,7 +222,7 @@
     
     self.navTabBar.yp_y = navTabBar_Y;
     
-    self.mainView.frame = CGRectMake(0, CGRectGetMaxY(self.navTabBar.frame), YPScreenW, YPScreenH - CGRectGetMaxY(self.navTabBar.frame));
+    self.mainView.frame = CGRectMake(0, CGRectGetMaxY(self.navTabBar.frame), YPScreenW, YPScreenH - CGRectGetMaxY(self.navTabBar.frame) - YPStatusBarAndNavBar);
 }
 
 - (void)setContentViewH:(CGFloat)contentViewH
