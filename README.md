@@ -61,6 +61,7 @@
 ```
 
 ## <a id="默认快速集成"></a>默认快速集成
+![(默认)](http://i.niupic.com/images/2015/10/31/amSlCt.gif)
 ```objc
     OneViewController *oneVc = [[OneViewController alloc] init];
     oneVc.title = @"娱乐";
