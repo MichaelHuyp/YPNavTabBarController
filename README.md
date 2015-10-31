@@ -4,7 +4,7 @@
 * 用法简单的滑块分段选择控制器:两行代码就可集成
 ![(效果展示)](http://i.niupic.com/images/2015/10/31/Il1Ush.gif)
 
-## 如何使用YPNavTabBarController
+## <a id="如何使用YPNavTabBarController"></a>如何使用YPNavTabBarController
 * 手动导入：
     * 将`YPNavTabBarController`文件夹中的所有文件拽入项目中
     * 导入主头文件：`#import "YPNavTabBarController.h"`
@@ -58,4 +58,23 @@
 @property (nonatomic, strong, readonly) YPNavTabBarController *navTabBarController;
 
 @end
+```
+
+## <a id="默认快速集成"></a>默认快速集成
+```objc
+    OneViewController *oneVc = [[OneViewController alloc] init];
+    oneVc.title = @"娱乐";
+    TwoViewController *twoVc = [[TwoViewController alloc] init];
+    twoVc.title = @"体育";
+    ThreeViewController *threeVc = [[ThreeViewController alloc] init];
+    threeVc.title = @"北京";
+    FourViewController *fourVc = [[FourViewController alloc] init];
+    fourVc.title = @"国际新闻";
+    FiveViewController *fiveVc = [[FiveViewController alloc] init];
+    fiveVc.title = @"测试模块1";
+    SixViewController *sixVc = [[SixViewController alloc] init];
+    sixVc.title = @"测试模块22";
+    
+    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] initWithParentViewController:self];
+    navTabBarController.subViewControllers = @[oneVc, twoVc, threeVc, fourVc , fiveVc,sixVc];
 ```
