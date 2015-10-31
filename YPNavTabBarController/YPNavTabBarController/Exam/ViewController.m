@@ -25,54 +25,6 @@
     [super viewDidLoad];
     
     
-    UIViewController *oneViewController = [[UIViewController alloc] init];
-    oneViewController.title = @"新闻";
-    oneViewController.view.backgroundColor = [UIColor brownColor];
-    
-    UIViewController *twoViewController = [[UIViewController alloc] init];
-    twoViewController.title = @"体育";
-    twoViewController.view.backgroundColor = [UIColor purpleColor];
-    
-    UIViewController *threeViewController = [[UIViewController alloc] init];
-    threeViewController.title = @"娱乐八卦";
-    threeViewController.view.backgroundColor = [UIColor orangeColor];
-    
-    UIViewController *fourViewController = [[UIViewController alloc] init];
-    fourViewController.title = @"天府之国";
-    fourViewController.view.backgroundColor = [UIColor magentaColor];
-    
-    UIViewController *fiveViewController = [[UIViewController alloc] init];
-    fiveViewController.title = @"四川省";
-    fiveViewController.view.backgroundColor = [UIColor yellowColor];
-    
-    UIViewController *sixViewController = [[UIViewController alloc] init];
-    sixViewController.title = @"政治";
-    sixViewController.view.backgroundColor = [UIColor cyanColor];
-    
-    UIViewController *sevenViewController = [[UIViewController alloc] init];
-    sevenViewController.title = @"国际新闻";
-    sevenViewController.view.backgroundColor = [UIColor blueColor];
-    
-    UIViewController *eightViewController = [[UIViewController alloc] init];
-    eightViewController.title = @"自媒体";
-    eightViewController.view.backgroundColor = [UIColor greenColor];
-    
-    UIViewController *ninghtViewController = [[UIViewController alloc] init];
-    ninghtViewController.title = @"科技";
-    ninghtViewController.view.backgroundColor = [UIColor redColor];
-    
-    UIViewController *ninghtViewController1 = [[UIViewController alloc] init];
-    ninghtViewController1.title = @"测试1";
-    ninghtViewController1.view.backgroundColor = [UIColor redColor];
-    UIViewController *ninghtViewController2 = [[UIViewController alloc] init];
-    ninghtViewController2.title = @"测试2222";
-    ninghtViewController2.view.backgroundColor = [UIColor redColor];
-    UIViewController *ninghtViewController3 = [[UIViewController alloc] init];
-    ninghtViewController3.title = @"测试133333333";
-    ninghtViewController3.view.backgroundColor = [UIColor redColor];
-    
-    
-    
     OneViewController *oneVc = [[OneViewController alloc] init];
     oneVc.title = @"娱乐";
     TwoViewController *twoVc = [[TwoViewController alloc] init];
@@ -88,7 +40,6 @@
     
     YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] initWithParentViewController:self];
     navTabBarController.subViewControllers = @[oneVc, twoVc, threeVc, fourVc , fiveVc,sixVc];
-    
     
     
     // 设置选项的位置(垂直方向)

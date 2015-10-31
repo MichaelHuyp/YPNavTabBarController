@@ -39,7 +39,7 @@
 {
     if (_mainView == nil) {
         UIScrollView *mainView = [[UIScrollView alloc] init];
-        mainView.frame = CGRectMake(0, CGRectGetMaxY(self.navTabBar.frame), YPScreenW, YPScreenH - CGRectGetMaxY(self.navTabBar.frame) - YPStatusBarAndNavBar);
+        mainView.frame = CGRectMake(0, CGRectGetMaxY(self.navTabBar.frame), YPScreenW, YPScreenH - CGRectGetMaxY(self.navTabBar.frame));
         mainView.pagingEnabled = YES;
         mainView.bounces = NO;
         mainView.showsHorizontalScrollIndicator = NO;
@@ -222,7 +222,7 @@
     
     self.navTabBar.yp_y = navTabBar_Y;
     
-    self.mainView.frame = CGRectMake(0, CGRectGetMaxY(self.navTabBar.frame), YPScreenW, YPScreenH - CGRectGetMaxY(self.navTabBar.frame) - YPStatusBarAndNavBar);
+    self.mainView.frame = CGRectMake(0, CGRectGetMaxY(self.navTabBar.frame), YPScreenW, YPScreenH - CGRectGetMaxY(self.navTabBar.frame));
 }
 
 - (void)setContentViewH:(CGFloat)contentViewH
