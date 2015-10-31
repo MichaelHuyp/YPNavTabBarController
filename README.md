@@ -3,6 +3,7 @@
 * An easy way to use Segment selection controller
 * 用法简单的滑块分段选择控制器:两行代码就可集成
 ![(效果展示)](http://i.niupic.com/images/2015/10/31/Il1Ush.gif)
+
 ## Contents
 * Examples
     * [如何使用YPNavTabBarController】](#如何使用YPNavTabBarController)
