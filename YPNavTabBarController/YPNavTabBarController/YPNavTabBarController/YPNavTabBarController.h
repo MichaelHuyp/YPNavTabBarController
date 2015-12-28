@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 MichaelPPP. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "YPNavTabBar.h"
+#import <UIKit/UIKit.h>
 
 @interface YPNavTabBarController : UIViewController
 
 /** 子控制器 */
-@property (nonatomic, strong) NSArray *subViewControllers;
+@property (nonatomic, strong) NSArray* subViewControllers;
 
 /** 选项条顶端距离父视图顶端的距离 */
 @property (nonatomic, assign) CGFloat navTabBar_Y;
@@ -27,51 +27,27 @@
 @property (nonatomic, assign) YPNavTabBarStyle navTabBar_style;
 
 /** 设置选项卡的背景颜色 */
-@property (nonatomic, strong) UIColor *navTabBar_color;
+@property (nonatomic, strong) UIColor* navTabBar_color;
 
 /** 选项条横条的颜色 */
-@property (nonatomic, strong) UIColor *navTabBarLine_color;
+@property (nonatomic, strong) UIColor* navTabBarLine_color;
 
 /** 选项标题普通状态文字的颜色 */
-@property (nonatomic, strong) UIColor *navTabBar_normalTitle_color;
+@property (nonatomic, strong) UIColor* navTabBar_normalTitle_color;
 
 /** 选项标题选中状态文字的颜色 */
-@property (nonatomic, strong) UIColor *navTabBar_selectedTitle_color;
+@property (nonatomic, strong) UIColor* navTabBar_selectedTitle_color;
 
 /** 索引 */
 @property (nonatomic, assign) NSInteger currentIndex;
 
-- (instancetype)initWithParentViewController:(UIViewController *)parentViewController;
-
-/**
- *  此方法已过期. 请使用'initWithParentViewController:'
- */
-- (void)addParentController:(UIViewController *)viewController __deprecated_msg("此方法已过期. 请使用'initWithParentViewController:'");
-
+/** 构造方法 */
+- (instancetype)initWithParentViewController:(UIViewController*)parentViewController;
 
 @end
 
 @interface UIViewController (YPNavTabBarControllerItem)
 
-@property (nonatomic, strong, readonly) YPNavTabBarController *navTabBarController;
+@property (nonatomic, strong, readonly) YPNavTabBarController* navTabBarController;
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

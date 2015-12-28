@@ -14,15 +14,17 @@
 
 @implementation ThreeViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
+
     self.view.backgroundColor = [UIColor cyanColor];
-    
+
     NSLog(@"第三个控制器加载完毕");
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

@@ -6,14 +6,15 @@
 //  Copyright (c) 2015年 MichaelPPP. All rights reserved.
 //
 
+#import "FiveViewController.h"
+#import "FourViewController.h"
+#import "OneViewController.h"
+#import "SixViewController.h"
+#import "ThreeViewController.h"
+#import "TwoViewController.h"
 #import "ViewController.h"
 #import "YPNavTabBarController.h"
-#import "OneViewController.h"
-#import "TwoViewController.h"
-#import "ThreeViewController.h"
-#import "FourViewController.h"
-#import "FiveViewController.h"
-#import "SixViewController.h"
+#import "YPNavTabBarControllerConst.h"
 
 @interface ViewController ()
 
@@ -21,30 +22,31 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
-    
-    OneViewController *oneVc = [[OneViewController alloc] init];
+
+    OneViewController* oneVc = [[OneViewController alloc] init];
     oneVc.title = @"要闻";
-    TwoViewController *twoVc = [[TwoViewController alloc] init];
+    TwoViewController* twoVc = [[TwoViewController alloc] init];
     twoVc.title = @"视频";
-    ThreeViewController *threeVc = [[ThreeViewController alloc] init];
+    ThreeViewController* threeVc = [[ThreeViewController alloc] init];
     threeVc.title = @"北京";
-    FourViewController *fourVc = [[FourViewController alloc] init];
+    FourViewController* fourVc = [[FourViewController alloc] init];
     fourVc.title = @"辽宁";
-    FiveViewController *fiveVc = [[FiveViewController alloc] init];
+    FiveViewController* fiveVc = [[FiveViewController alloc] init];
     fiveVc.title = @"财经";
-    SixViewController *sixVc = [[SixViewController alloc] init];
+    SixViewController* sixVc = [[SixViewController alloc] init];
     sixVc.title = @"娱乐";
+
     
-    YPNavTabBarController *navTabBarController = [[YPNavTabBarController alloc] initWithParentViewController:self];
-    navTabBarController.subViewControllers = @[oneVc, twoVc, threeVc, fourVc , fiveVc, sixVc];
+    YPNavTabBarController* navTabBarController = [[YPNavTabBarController alloc] initWithParentViewController:self];
+    navTabBarController.subViewControllers = @[ oneVc, twoVc, threeVc, fourVc, fiveVc, sixVc ];
     
-    
+
     // 设置选项的位置(垂直方向)
-    navTabBarController.navTabBar_Y = 20;   // 默认为0
-    
+    navTabBarController.navTabBar_Y = 20; // 默认为0
+
     navTabBarController.navTabBar_type = YPNavTabBarTypeEllipse;
     
 }
