@@ -42,11 +42,13 @@
     
     YPNavTabBarController* navTabBarController = [[YPNavTabBarController alloc] initWithParentViewController:self];
     navTabBarController.subViewControllers = @[ oneVc, twoVc, threeVc, fourVc, fiveVc, sixVc ];
+    navTabBarController.currentIndex = 2;
+    
     
     // 设置选项的位置(垂直方向)
-    navTabBarController.navTabBar_Y = 20; // 默认为0
+//    navTabBarController.navTabBar_Y = 20; // 默认为0
 
-    navTabBarController.navTabBar_type = YPNavTabBarTypeEllipse;
+//    navTabBarController.navTabBar_type = YPNavTabBarTypeEllipse;
     
 }
 
