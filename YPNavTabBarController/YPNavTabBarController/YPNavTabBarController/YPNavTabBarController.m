@@ -97,11 +97,13 @@
     // 默认navBar高度为0
     self.navTabBar_Y = 0;
     // 默认索引为0
-    self.currentIndex = 0;
+    _currentIndex = 0;
 }
 
 - (void)setSubViewControllers:(NSArray*)subViewControllers
 {
+    if (!subViewControllers || subViewControllers.count == 0) return;
+    
     _subViewControllers = subViewControllers;
 
     // 初始化基本信息
@@ -178,6 +180,8 @@
 
 - (void)itemDidSelectedWithIndex:(YPNavTabBar*)navTabBar index:(NSInteger)index
 {
+    
+    
     UIViewController* selectedVc = (UIViewController*)self.subViewControllers[index];
     selectedVc.view.frame = CGRectMake(YPScreenW * index, 0, YPScreenW, self.mainView.frame.size.height);
     [self.mainView addSubview:selectedVc.view];
