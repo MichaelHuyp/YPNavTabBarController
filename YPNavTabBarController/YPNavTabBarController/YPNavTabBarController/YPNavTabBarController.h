@@ -44,6 +44,9 @@
 /** 构造方法 */
 - (instancetype)initWithParentViewController:(UIViewController*)parentViewController;
 
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
++ (instancetype)new UNAVAILABLE_ATTRIBUTE;
+
 @end
 
 @interface UIViewController (YPNavTabBarControllerItem)

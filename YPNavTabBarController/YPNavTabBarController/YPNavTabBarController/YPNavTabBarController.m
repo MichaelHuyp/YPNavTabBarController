@@ -95,9 +95,7 @@
     }
 
     // 默认navBar高度为0
-    self.navTabBar_Y = 0;
-    // 默认索引为0
-    _currentIndex = 0;
+    _navTabBar_Y = 0;
 }
 
 - (void)setSubViewControllers:(NSArray*)subViewControllers
